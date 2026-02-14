@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Khawla Photography | لحظاتك الخالدة</title>
+<title>Khawla Al Jahrani | لحظاتك الخالدة</title>
+
+<!-- وسوم Open Graph للمشاركة -->
+<meta property="og:title" content="Khawla Al Jahrani | لحظاتك الخالدة">
+<meta property="og:description" content="نسعد بتوثيق يومك وسنصنع منه أجمل ذكرى - تصوير أعراس ومناسبات">
+<meta property="og:image" content="https://i.postimg.cc/MG84kx89/file-000000007dbc722fadab0344567326df.png">
+<meta property="og:url" content="https://khawlaphotography.github.io/Khawla_Photography-/">
+<meta name="twitter:card" content="summary_large_image">
 
 <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <style>
+/* الأنماط الموجودة */
 *{
     margin:0;
     padding:0;
@@ -31,32 +40,40 @@ body{
 
 .container{
     width:90%;
-    max-width:900px;  /* مصغر من 1100px */
-    padding:30px 0;   /* مصغر من 40px */
+    max-width:900px;
+    padding:30px 0;
     display:flex;
     flex-direction:column;
-    gap:20px;         /* مصغر من 30px */
+    gap:20px;
+    position: relative;
 }
 
-/* تأثير الظهور */
-.fade-in {
-    animation: fadeIn 0.8s ease-in;
-}
-
-@keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(15px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
-
-.hidden-content {
+/* تأثيرات الحركة */
+#welcomeBox {
     opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.6s ease, visibility 0.6s ease;
+    transform: translateY(15px);
+    transition: opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 1.8s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto 15px auto;
 }
 
-.hidden-content.show {
+.welcome-animation {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+#restContent {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 2s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#restContent.show {
     opacity: 1;
-    visibility: visible;
+    transform: translateY(0);
 }
 
 .glass-box{
@@ -64,8 +81,8 @@ body{
     backdrop-filter:blur(18px);
     -webkit-backdrop-filter:blur(18px);
     border:1px solid rgba(255,255,255,0.18);
-    border-radius:30px;        /* مصغر من 40px */
-    padding:25px 20px;         /* مصغر من 35px 30px */
+    border-radius:30px;
+    padding:25px 20px;
     text-align:center;
     box-shadow:0 15px 30px rgba(0,0,0,0.6);
     transition:transform .3s ease, box-shadow .3s ease;
@@ -82,72 +99,100 @@ body{
     border:2px solid rgba(255,215,0,0.3);
     width: 80%;
     margin: 0 auto 15px auto;
+    position: relative;
+    z-index: 100;
 }
 
 h1{
-    font-size:2.5rem;          /* مصغر من 3.2rem */
+    font-size:2.5rem;
     margin-bottom:8px;
     text-shadow:2px 2px 8px rgba(0,0,0,0.5);
 }
 
 .subtitle{
-    font-size:1.3rem;          /* مصغر من 1.5rem */
+    font-size:1.3rem;
     opacity:.9;
 }
 
 .section-title{
-    font-size:2rem;            /* مصغر من 2.4rem */
-    margin:15px 0 8px;         /* مصغر من 20px 0 10px */
+    font-size:2rem;
+    margin:15px 0 8px;
     text-align:center;
     font-weight:bold;
     text-shadow:1px 1px 5px black;
 }
 
-/* شبكة الباقات: مربعين متجاورين */
+.section-subtitle{
+    font-size:1.8rem;
+    margin:25px 0 15px;
+    text-align:center;
+    font-weight:bold;
+    color:#FFE5A3;
+    border-bottom:2px solid rgba(255,215,0,0.3);
+    padding-bottom:8px;
+}
+
+/* شبكة الباقات */
 .packages-grid{
     display:grid;
     grid-template-columns:repeat(2, 1fr);
-    gap:15px;                  /* مصغر من 25px */
+    gap:15px;
     width:100%;
 }
 
 .package-card{
-    padding:20px 15px;         /* مصغر من 30px 20px */
+    padding:20px 15px;
     display:flex;
     flex-direction:column;
     height: 100%;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.package-card:hover {
+    border-color: rgba(255, 215, 0, 0.6);
+    transform: translateY(-5px);
+    box-shadow: 0 25px 45px rgba(0,0,0,0.9);
 }
 
 .package-card h3{
-    font-size:1.7rem;          /* مصغر من 2rem */
+    font-size:1.7rem;
     border-bottom:2px solid rgba(255,215,0,0.5);
-    padding-bottom:10px;       /* مصغر من 15px */
-    margin-bottom:15px;        /* مصغر من 20px */
+    padding-bottom:10px;
+    margin-bottom:15px;
     color:#FFE5A3;
+}
+
+.package-card .price-tag {
+    font-size:1.5rem;
+    color:#FFD966;
+    margin-top:10px;
+    font-weight:bold;
 }
 
 ul{
     list-style:none;
-    line-height:1.8;           /* مصغر من 2.1 */
-    font-size:1.1rem;          /* مصغر من 1.3rem */
+    line-height:1.8;
+    font-size:1.1rem;
     flex-grow:1;
 }
 
 li{
-    margin-bottom:6px;         /* مصغر من 10px */
+    margin-bottom:6px;
     border-bottom:1px dashed rgba(255,255,255,0.1);
-    padding-bottom:5px;        /* مصغر من 8px */
+    padding-bottom:5px;
 }
 
 .about-text{
     font-style:italic;
-    font-size:1.3rem;          /* مصغر من 1.6rem */
-    line-height:1.6;           /* مصغر من 1.8 */
-    margin-bottom:15px;        /* مصغر من 20px */
+    font-size:1.3rem;
+    line-height:1.6;
+    margin-bottom:15px;
 }
 
 .signature{
-    font-size:1.6rem;          /* مصغر من 1.9rem */
+    font-size:1.6rem;
     font-weight:bold;
     color:#FFD966;
     letter-spacing:1px;
@@ -157,28 +202,28 @@ li{
     display:flex;
     flex-wrap:wrap;
     justify-content:center;
-    gap:15px;                  /* مصغر من 20px */
-    margin:20px 0 8px;         /* مصغر من 25px 0 10px */
+    gap:15px;
+    margin:20px 0 8px;
 }
 
 .social-btn{
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    gap:8px;                   /* مصغر من 12px */
-    padding:12px 25px;         /* مصغر من 16px 35px */
-    border-radius:50px;        /* مصغر من 60px */
-    font-size:1.2rem;          /* مصغر من 1.5rem */
+    gap:8px;
+    padding:12px 25px;
+    border-radius:50px;
+    font-size:1.2rem;
     font-weight:bold;
     text-decoration:none;
     color:white;
     border:1px solid rgba(255,255,255,0.3);
     transition:all .3s ease;
-    min-width:160px;           /* مصغر من 200px */
+    min-width:160px;
 }
 
 .social-btn i{
-    font-size:1.5rem;          /* مصغر من 1.9rem */
+    font-size:1.5rem;
 }
 
 .social-btn.instagram{
@@ -203,18 +248,18 @@ li{
 /* معرض الصور */
 .gallery-container{
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); /* مصغر */
+    grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));
     gap:15px;
     margin-top:15px;
 }
 
 .gallery-container img{
     width:100%;
-    max-width: 200px;          /* مصغر من 250px */
+    max-width: 200px;
     height: auto;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    border-radius:20px;        /* مصغر من 25px */
+    border-radius:20px;
     cursor:pointer;
     transition:transform 0.3s ease;
     box-shadow:0 10px 20px rgba(0,0,0,0.5);
@@ -226,7 +271,7 @@ li{
     transform:scale(1.03);
 }
 
-/* Lightbox */
+/* Lightbox للصور */
 .lightbox{
     display:none;
     position:fixed;
@@ -247,6 +292,173 @@ li{
     border-radius:15px;
     box-shadow:0 0 20px rgba(255,255,255,0.2);
     border:2px solid rgba(255,255,255,0.3);
+}
+
+/* ===== أنماط المودال ===== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+}
+
+.modal-content {
+    background: rgba(15, 15, 20, 0.35);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 30px;
+    padding: 35px 30px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+    color: white;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+    animation: modalFadeIn 0.5s;
+}
+
+.modal-content:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+}
+
+@keyframes modalFadeIn {
+    from {opacity: 0; transform: scale(0.9);}
+    to {opacity: 1; transform: scale(1);}
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    opacity: 0.8;
+    cursor: pointer;
+    transition: 0.3s;
+    line-height: 1;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(15, 15, 20, 0.5);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.close-modal:hover {
+    color: #FFE5A3;
+    opacity: 1;
+    transform: scale(1.1);
+    background: rgba(255, 215, 0, 0.15);
+    border-color: rgba(255, 215, 0, 0.3);
+}
+
+.modal-content h2 {
+    font-size: 2.2rem;
+    color: #FFE5A3;
+    border-bottom: 2px solid rgba(255, 215, 0, 0.5);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.modal-content .detail-box {
+    background: rgba(15, 15, 20, 0.3);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 15px 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-content .detail-box p {
+    margin: 10px 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.modal-content .price-box {
+    font-size: 2rem;
+    color: #FFE5A3;
+    text-align: center;
+    margin: 20px 0;
+    padding: 15px;
+    background: rgba(255, 215, 0, 0.1);
+    border-radius: 50px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.modal-content .notes-box {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px 0;
+    border-right: 3px solid #FFD966;
+}
+
+.modal-content .notes-box h3 {
+    color: #FFD966;
+    margin-bottom: 15px;
+}
+
+.modal-content .notes-box p {
+    margin: 8px 0;
+}
+
+.modal-content .contact-box {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.modal-content .contact-box a {
+    color: #FFD966;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.modal-wa-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 60px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.modal-wa-btn i {
+    font-size: 2rem;
+}
+
+.modal-wa-btn:hover {
+    transform: scale(1.03) translateY(-2px);
+    background: #20b859;
+    box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+    border-color: rgba(255, 255, 255, 0.4);
 }
 
 /* زر العودة للأعلى */
@@ -274,12 +486,12 @@ li{
 }
 
 footer{
-    margin-top:50px;           /* مصغر من 50px */
-    padding:20px;              /* مصغر من 20px */
+    margin-top:30px;
+    padding:15px;
     opacity:.8;
-    font-size:0.9rem;          /* مصغر من 1rem */
+    font-size:0.9rem;
     text-align:center;
-    letter-spacing:3px;        /* مصغر من 3px */
+    letter-spacing:2px;
     background:rgba(0,0,0,0.3);
     width:100%;
 }
@@ -300,6 +512,14 @@ footer{
     .welcome-box {
         width: 95%;
     }
+    
+    .modal-content {
+        padding: 25px 20px;
+    }
+    
+    .modal-content h2 {
+        font-size: 1.8rem;
+    }
 }
 </style>
 </head>
@@ -309,107 +529,193 @@ footer{
 <div class="container">
 
 <!-- مربع الترحيب -->
-<div class="glass-box welcome-box fade-in" id="welcomeBox">
-<h1>شكراً لكم لاختيارنا</h1>
-<p class="subtitle">نسعد بتوثيق لحظاتكم في</p>
-<p style="font-size:1.6rem;font-weight:bold;margin-top:5px;color:#FFE5A3;">
-Khawla Photography
-</p>
+<div class="glass-box welcome-box" id="welcomeBox">
+<h1>شكرا لاختيارك لنا</h1>
+<p class="subtitle">نسعد بتوثيق يومك وسنصنع منه أجمل ذكرى</p>
+<p style="font-size:1.6rem;font-weight:bold;margin-top:5px;color:#FFE5A3;">يتم التصوير بأحدث المعدات والكاميرات</p>
 </div>
 
 <!-- باقي المحتوى -->
-<div class="hidden-content" id="restContent">
+<div id="restContent">
 
-<!-- الباقات -->
-<h2 class="section-title">البكجات والخدمات</h2>
+<!-- ===== القسم الأول: عروض التصوير الفوتوغرافي ===== -->
+<h2 class="section-subtitle">عروض التصوير الفوتوغرافي</h2>
 <div class="packages-grid">
 
-<div class="glass-box package-card">
-<h3>باقة الجلسات</h3>
+<!-- 1. عرض التوفير -->
+<div class="glass-box package-card" data-package="offer">
+<h3>عرض التوفير</h3>
 <ul>
-<li>ساعة تصوير فوتوغرافي</li>
-<li>تعديل احترافي لـ 15 صورة</li>
-<li>تسليم الصور (Reels)</li>
-<li>المقاسات حسب الطلب</li>
+<li>تصوير لمدة ساعتين</li>
+<li>فوتوسيشن شامل العروسين والاهل</li>
+<li>تصوير الزفة ورقص العرسان</li>
+<li>تسليم على فلاشة</li>
 </ul>
+<div class="price-tag">150$</div>
 </div>
 
-<div class="glass-box package-card">
-<h3>باقة المناسبات</h3>
+<!-- 2. الباقة الأولى -->
+<div class="glass-box package-card" data-package="package1">
+<h3>الباقة الاولى</h3>
 <ul>
-<li>تغطية كاملة للمناسبة</li>
-<li>تصوير فيديو (Reels)</li>
-<li>تعديل احترافي لـ 30 صورة</li>
-<li>ألبوم صور فاخر</li>
+<li>تصوير لمدة 3 ساعات</li>
+<li>فوتوسيشن شامل العروسين والاهل والزفة</li>
+<li>طباعة 5 صفحات البوم عادي</li>
+<li>باقي الصور على فلاشة</li>
 </ul>
+<div class="price-tag">150$</div>
 </div>
 
-<div class="glass-box package-card">
-<h3>خدمات إضافية</h3>
+<!-- 3. الباقة الثانية -->
+<div class="glass-box package-card" data-package="package2">
+<h3>الباقة الثانية</h3>
 <ul>
-<li>طباعة الصور بجودة عالية</li>
-<li>تصوير منتجات</li>
-<li>فيديو تصوير (Reels قصير)</li>
-<li>تعديل صور إضافي</li>
+<li>تصوير لمدة 4 ساعات</li>
+<li>تصوير الزفة والجاتو</li>
+<li>طباعة 10 صور + 5 صفحات البوم حراري</li>
+<li>صورة هدية للعروسة</li>
 </ul>
+<div class="price-tag">180$</div>
 </div>
 
-<div class="glass-box package-card">
-<h3>باقة الزفاف</h3>
+<!-- 4. الباقة الفضية -->
+<div class="glass-box package-card" data-package="package3">
+<h3>الباقة الفضية</h3>
 <ul>
-<li>تغطية كاملة ليوم الزفاف</li>
-<li>جلسة تصوير عروسين</li>
-<li>ألبوم فاخر 50 صورة</li>
-<li>فيديو highlight</li>
+<li>تصوير هاف داي</li>
+<li>طباعة 15 صورة + 6 صفحات البوم خشبي</li>
+<li>صورة مكبرة خشبية A3 هدية</li>
+<li>هدايا خاصة للعروسة</li>
 </ul>
+<div class="price-tag">200$</div>
 </div>
 
-<div class="glass-box package-card">
-<h3>باقة الخطوبة</h3>
+</div> <!-- نهاية القسم الأول -->
+
+<!-- ===== القسم الثاني: عروض FULL DAY ===== -->
+<h2 class="section-subtitle">عروض FULL DAY</h2>
+<div class="packages-grid">
+
+<!-- 5. العرض الذهبي -->
+<div class="glass-box package-card" data-package="gold">
+<h3>العرض الذهبي</h3>
 <ul>
-<li>جلسة تصوير لمدة ساعتين</li>
-<li>تعديل 25 صورة</li>
-<li>طباعة صور</li>
-<li>فيديو قصير</li>
+<li>فوتوسيشن احترافي العروسين</li>
+<li>تفاصيل القاعة والديكوريشن والزفة</li>
+<li>تجهيزات العروسة من اول اليوم</li>
+<li>طباعة 10 صور + 8 صفحات البوم حراري</li>
 </ul>
+<div class="price-tag">250$</div>
 </div>
 
-<div class="glass-box package-card">
-<h3>باقة المنتجات</h3>
+<!-- 6. العرض الالماسي -->
+<div class="glass-box package-card" data-package="diamond">
+<h3>العرض الالماسي</h3>
 <ul>
-<li>تصوير 20 منتج</li>
-<li>تعديل احترافي</li>
-<li>خلفيات بيضاء</li>
-<li>صور جاهزة للتسويق</li>
+<li>فوتوسيشن احترافي العروسين</li>
+<li>تفاصيل القاعة والديكوريشن والزفة</li>
+<li>تجهيزات العروسة من اول اليوم</li>
+<li>10 صفحات البوم + 5 ميني البوم</li>
 </ul>
+<div class="price-tag">280$</div>
 </div>
 
-<div class="glass-box package-card" style="grid-column: span 2; max-width: 50%; margin: 0 auto;">
-<h3>باقة المواليد</h3>
+<!-- 7. العرض المخملي -->
+<div class="glass-box package-card" data-package="velvet">
+<h3>العرض المخملي</h3>
 <ul>
-<li>جلسة تصوير مولود</li>
-<li>إكسسوارات وديكورات</li>
-<li>تعديل 15 صورة</li>
-<li>تصوير عائلي</li>
+<li>فل داي فوتو كامل</li>
+<li>البوم جولدن فاخر</li>
+<li>تصوير احترافي شامل</li>
+<li>تسليم كامل التفاصيل</li>
 </ul>
-</div>
+<div class="price-tag">380$</div>
 </div>
 
+</div> <!-- نهاية القسم الثاني -->
+
+<!-- ===== القسم الثالث: عروض تصوير الفيديو ===== -->
+<h2 class="section-subtitle">عروض تصوير الفيديو</h2>
+<div class="packages-grid">
+
+<!-- 8. فيديو مستمر أساسي -->
+<div class="glass-box package-card" data-package="video1">
+<h3>فيديو مستمر</h3>
+<ul>
+<li>تصوير الزفة</li>
+<li>تقطيع جاتو</li>
+<li>رقص العرسان</li>
+<li>فيديو ثابت</li>
+</ul>
+<div class="price-tag">80$</div>
+</div>
+
+<!-- 9. فيديو مستمر شامل -->
+<div class="glass-box package-card" data-package="video2">
+<h3>فيديو مستمر شامل</h3>
+<ul>
+<li>تصوير الزفة كامل</li>
+<li>مونتاج احترافي</li>
+<li>تسليم سريع</li>
+<li>جودة عالية</li>
+</ul>
+<div class="price-tag">100$</div>
+</div>
+
+<!-- 10. برومو هاف داي -->
+<div class="glass-box package-card" data-package="video3">
+<h3>برومو هاف داي</h3>
+<ul>
+<li>تصوير نصف يوم</li>
+<li>مونتاج احترافي</li>
+<li>تسليم كامل</li>
+<li>جودة عالية</li>
+</ul>
+<div class="price-tag">150$</div>
+</div>
+
+<!-- 11. برومو فل داي -->
+<div class="glass-box package-card" data-package="video4">
+<h3>برومو فل داي</h3>
+<ul>
+<li>تصوير كامل اليوم</li>
+<li>تصوير العروسة من البداية</li>
+<li>الميكب والفستان</li>
+<li>كل التفاصيل والزفة</li>
+</ul>
+<div class="price-tag">180$</div>
+</div>
+
+<!-- 12. عرض بدون وجه تشويقي (يمتد على عمودين) -->
+<div class="glass-box package-card" data-package="video5" style="grid-column: span 2; max-width: 100%; margin: 0 auto;">
+<h3>عرض بدون وجه تشويقي</h3>
+<ul style="font-size:1.2rem;">
+<li>تفاصيل كاملة بدون وجه تشويقي</li>
+<li>تسليم سريع</li>
+<li>جودة عالية</li>
+<li>سعر خاص</li>
+</ul>
+<div class="price-tag">70$</div>
+</div>
+
+</div> <!-- نهاية القسم الثالث -->
+
+<!-- معرض الصور -->
+<!-- معرض الصور -->
 <!-- معرض الصور -->
 <h2 class="section-title">معرض الأعمال</h2>
 <div class="glass-box">
 <div class="gallery-container">
-    <img src="https://picsum.photos/id/1043/600/800" alt="صورة من المعرض 1">
-    <img src="https://picsum.photos/id/106/600/800" alt="صورة من المعرض 2">
-    <img src="https://picsum.photos/id/107/600/800" alt="صورة من المعرض 3">
-    <img src="https://picsum.photos/id/108/600/800" alt="صورة من المعرض 4">
-    <img src="https://picsum.photos/id/169/600/800" alt="صورة من المعرض 5">
-    <img src="https://picsum.photos/id/155/600/800" alt="صورة من المعرض 6">
+    <img src="https://images.pexels.com/photos/3373720/pexels-photo-3373720.jpeg?auto=compress&cs=tinysrgb&w=600" alt="تصوير زفاف">
+    <img src="https://images.pexels.com/photos/2747743/pexels-photo-2747743.jpeg?auto=compress&cs=tinysrgb&w=600" alt="عروس">
+    <img src="https://images.pexels.com/photos/371592/pexels-photo-371592.jpeg?auto=compress&cs=tinysrgb&w=600" alt="تصوير فوتوغرافي">
+    <img src="https://images.pexels.com/photos/264905/pexels-photo-264905.jpeg?auto=compress&cs=tinysrgb&w=600" alt="تصوير">
+    <img src="https://images.pexels.com/photos/3014856/pexels-photo-3014856.jpeg?auto=compress&cs=tinysrgb&w=600" alt="كاميرا">
+    <img src="https://images.pexels.com/photos/1266810/pexels-photo-1266810.jpeg?auto=compress&cs=tinysrgb&w=600" alt="عدسة">
 </div>
 </div>
-
 <!-- النبذة -->
-<h2 class="section-title">KHAWLA PHOTOGRAPHY</h2>
+<h2 class="section-title">KHAWLA AL GAHRANI</h2>
 <div class="glass-box">
 <p class="about-text">
 "في عالمنا، التصوير ليس مجرد ضغطة زر، بل هو تجميد للحظات والمشاعر لتبقى حية للأبد."
@@ -421,7 +727,7 @@ Khawla Photography
 <div class="glass-box">
 <h2 style="font-size:1.8rem;margin-bottom:15px;color:#FFE5A3;">تواصلوا معنا</h2>
 <div class="social-buttons">
-<a href="https://www.instagram.com/khawlh_photographer?igsh=YTl4ZXdvNGV3dXRq" class="social-btn instagram"><i class="fab fa-instagram"></i> Instagram</a>
+<a href="https://www.instagram.com/p/CXRJZd0I4nD/" class="social-btn instagram"><i class="fab fa-instagram"></i> Instagram</a>
 <a href="https://www.tiktok.com/@khawla_photographer" class="social-btn tiktok"><i class="fab fa-tiktok"></i> TikTok</a>
 <a href="https://wa.me/201142308981" class="social-btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
 </div>
@@ -432,13 +738,275 @@ Khawla Photography
 
 <button id="topBtn">↑</button>
 <div class="lightbox" id="lightbox"><img id="lightbox-img"></div>
-<footer>KHAWLA PHOTOGRAPHY © 2026</footer>
+<footer>KHAWLA AL GAHRANI © 2026</footer>
+
+<!-- المودال -->
+<div id="packageModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div id="modalContent"></div>
+    </div>
+</div>
 
 <script>
-setTimeout(function() {
-    document.getElementById('restContent').classList.add('show');
-}, 2000);
+// بيانات الباقات التفصيلية - 12 باقة كاملة
+const packagesData = {
+    // عروض التصوير الفوتوغرافي
+    offer: {
+        title: 'عرض التوفير',
+        details: `
+            <div class="detail-box">
+                <p>تصوير لمدة ساعتين</p>
+                <p>فوتوسيشن احترافي شامل جميع تفاصيل العروسين العريس و العروسه والاهل</p>
+                <p>فيديو تصوير الزفة و رقص العرسان</p>
+                <p>بدون طباعة الصور - تسلم على ذاكرة او فلاش ميموري تجيبها العروس</p>
+            </div>
+        `,
+        price: '150$'
+    },
+    package1: {
+        title: 'الباقة الاولى',
+        details: `
+            <div class="detail-box">
+                <p>تصوير لمدة 3 ساعات</p>
+                <p>فوتوسيشن شامل تفاصيل العروسين و العروس والعروسه والزفه والأهل</p>
+                <p>طباعة 5 صفحات البوم عادي</p>
+                <p>باقي الصور على فلاشة</p>
+                <p>تعديل كامل التفاصيل و الصور من إضاءة وألوان</p>
+            </div>
+        `,
+        price: '150$'
+    },
+    package2: {
+        title: 'الباقة الثانية',
+        details: `
+            <div class="detail-box">
+                <p>تصوير لمدة 4 ساعات</p>
+                <p>فوتوسيشن احترافي شامل الديكوريشن والمكان وجميع تفاصيل العروسين والعريس والعروسه والاهل والزفة</p>
+                <p>تصوير تقطيع الجاتو</p>
+                <p>طباعة 10 صور حجم A5</p>
+                <p>5 صفحات البوم حراري</p>
+                <p>تسلم جميع الصور على فلاشة</p>
+                <p>طباعة صورة هدية للعروسة 10*15</p>
+                <p>تعديل كامل الصور من إضاءة وألوان</p>
+            </div>
+        `,
+        price: '180$'
+    },
+    package3: {
+        title: 'الباقة الفضية',
+        details: `
+            <div class="detail-box">
+                <p>تصوير هاف داي</p>
+                <p>فوتوسيشن احترافي شامل الديكوريشن والمكان وجميع تفاصيل العروسين والعريس والعروسه والاهل والزفة</p>
+                <p>تصوير تقطيع الجاتو</p>
+                <p>طباعة 15 صورة حجم A5</p>
+                <p>6 صفحات صور للعرسان - البوم حراري خشبي فخم</p>
+                <p>صورة مكبرة خشبية حجم A3 هدية</p>
+                <p>طباعة صورة هدية للعروسة 10*15</p>
+                <p>تسلم جميع الصور على فلاشة</p>
+                <p>تعديل كامل الصور من إضاءة وألوان</p>
+            </div>
+        `,
+        price: '200$'
+    },
+    
+    // عروض FULL DAY
+    gold: {
+        title: 'العرض الذهبي',
+        details: `
+            <div class="detail-box">
+                <p>فوتوسيشن احترافي العروسين</p>
+                <p>تفاصيل القاعة و الديكوريشن و الزفة ودخول الأهل</p>
+                <p>تجهيزات العروسه من اول اليوم في الصالون الى اخر العرس</p>
+                <p>طباعة 10 صور حجم A5</p>
+                <p>8 صفحات البوم حراري</p>
+                <p>فلاش USB بجميع التفاصيل و الصور</p>
+            </div>
+        `,
+        price: '250$'
+    },
+    diamond: {
+        title: 'العرض الالماسي',
+        details: `
+            <div class="detail-box">
+                <p>فوتوسيشن احترافي العروسين</p>
+                <p>تفاصيل القاعة و الديكوريشن و الزفة ودخول الأهل</p>
+                <p>تجهيزات العروسه من اول اليوم في الصالون الى اخر العرس</p>
+                <p>طباعة 10 صور حجم A5</p>
+                <p>10 صفحات البوم حراري + 5 ميني البوم</p>
+                <p>صورة مكبرة خشبية</p>
+                <p>فلاش USB بجميع التفاصيل و الصور</p>
+            </div>
+        `,
+        price: '280$'
+    },
+    velvet: {
+        title: 'العرض المخملي',
+        details: `
+            <div class="detail-box">
+                <p>فل داي فوتو مع عرض الالبوم الجولدن</p>
+                <p>تصوير احترافي شامل لجميع التفاصيل</p>
+                <p>البوم فاخر</p>
+            </div>
+        `,
+        price: '380$'
+    },
+    
+    // عروض تصوير الفيديو
+    video1: {
+        title: 'فيديو مستمر',
+        details: `
+            <div class="detail-box">
+                <p>فيديو مستمر يشمل:</p>
+                <p>تصوير الزفة</p>
+                <p>تقطيع جاتو</p>
+                <p>رقص العرسان او التلبيس</p>
+                <p>فيديو ثابت</p>
+            </div>
+        `,
+        price: '80$'
+    },
+    video2: {
+        title: 'فيديو مستمر شامل',
+        details: `
+            <div class="detail-box">
+                <p>فيديو مستمر يشمل:</p>
+                <p>تصوير الزفة كامل</p>
+                <p>مونتاج احترافي شامل</p>
+            </div>
+        `,
+        price: '100$'
+    },
+    video3: {
+        title: 'برومو هاف داي',
+        details: `
+            <div class="detail-box">
+                <p>برومو هاف داي</p>
+                <p>تصوير نصف يوم</p>
+                <p>مونتاج احترافي</p>
+            </div>
+        `,
+        price: '150$'
+    },
+    video4: {
+        title: 'برومو فل داي',
+        details: `
+            <div class="detail-box">
+                <p>برومو احترافي فل داي يشمل:</p>
+                <p>تصوير العروسه من بداية اليوم بالميكب و الفستان</p>
+                <p>تفاصيل العروسين والزفة</p>
+                <p>تقطيع جاتو - رقص عرسان</p>
+                <p>السيشن وكل التفاصيل</p>
+            </div>
+        `,
+        price: '180$'
+    },
+    video5: {
+        title: 'عرض بدون وجه تشويقي',
+        details: `
+            <div class="detail-box">
+                <p>تفاصيل كاملة بدون وجه تشويقي</p>
+                <p>عرض خاص</p>
+            </div>
+        `,
+        price: '70$'
+    }
+};
 
+// دالة لفتح المودال
+function openPackageModal(packageKey) {
+    const data = packagesData[packageKey];
+    if (!data) return;
+
+    // الملاحظات العامة
+    const generalNotes = `
+        <div class="notes-box">
+            <h3>ملاحظات هامة</h3>
+            <p>منكان الفستان ب ٥٠٠ج</p>
+            <p>اي طلبات خاصة للعروسة تنضاف للعروض ويتم الإتفاق عليها</p>
+            <p>انواع الالبومات تنضاف بالسعر حسب رغبة العروسة (السيراميك و المخمل)</p>
+            <p>تعديل الصور و التفاصيل يشمل كامل العروض</p>
+            <p>تثبيت الحجز يتم بدفع نص العربون وباقي المبلغ يوم المناسبة</p>
+            <p>اي وقت إضافي للسيشن: ١٠٠٠ جنيه للساعة</p>
+            <p>المواصلات على أصحاب العرس</p>
+            <p>يتم تسليم صور العرس خلال شهر ونص من التصوير</p>
+            <p>الاستعجال في التسليم: إضافة 60$ فوق السعر</p>
+        </div>
+    `;
+
+    // معلومات التواصل
+    const contactInfo = `
+        <div class="contact-box">
+            <p style="font-size: 1.2rem; color: #FFE5A3;"></p>
+            <p style="margin: 10px 0;">
+                <a href="https://www.facebook.com/khawlaalgahrani" target="_blank">Facebook</a> |
+                <a href="https://www.instagram.com/p/CXRJZd0I4nD/" target="_blank">Instagram</a>
+            </p>
+            <p style="color: #FFD966;">KHAWLA AL GAHRANI</p>
+            <p>لتصوير الأعراس و حفلات الخطوبة و العقد</p>
+        </div>
+    `;
+
+    // تجميع المحتوى
+    const fullContent = `
+        <h2>${data.title}</h2>
+        ${data.details}
+        <div class="price-box">${data.price}</div>
+        ${generalNotes}
+        ${contactInfo}
+        <a href="https://wa.me/201142308981?text=${encodeURIComponent('السلام عليكم' + data.title)}" class="modal-wa-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> احجز الآن عبر واتساب
+        </a>
+    `;
+
+    document.getElementById('modalContent').innerHTML = fullContent;
+    document.getElementById('packageModal').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+
+// إغلاق المودال
+function closePackageModal() {
+    document.getElementById('packageModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// ربط المربعات
+document.querySelectorAll('.package-card').forEach(card => {
+    card.addEventListener('click', function() {
+        const packageKey = this.dataset.package;
+        if (packageKey && packagesData[packageKey]) {
+            openPackageModal(packageKey);
+        }
+    });
+});
+
+// إغلاق المودال عند الضغط على زر الإغلاق
+document.querySelector('.close-modal').addEventListener('click', closePackageModal);
+
+// إغلاق المودال عند الضغط خارجه
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById('packageModal');
+    if (event.target === modal) {
+        closePackageModal();
+    }
+});
+
+// تأثيرات الظهور
+window.onload = function() {
+    const welcomeBox = document.getElementById('welcomeBox');
+    const restContent = document.getElementById('restContent');
+
+    setTimeout(() => {
+        welcomeBox.classList.add('welcome-animation');
+    }, 500);
+
+    setTimeout(() => {
+        restContent.classList.add('show');
+    }, 2500); 
+};
+
+// زر العودة للأعلى
 let topBtn = document.getElementById("topBtn");
 window.onscroll = function() {
     topBtn.style.display = (window.scrollY > 300) ? "block" : "none";
@@ -447,6 +1015,7 @@ topBtn.onclick = function() {
     window.scrollTo({top: 0, behavior: 'smooth'});
 };
 
+// Lightbox للصور
 const images = document.querySelectorAll(".gallery-container img");
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
@@ -466,4 +1035,4 @@ lightbox.addEventListener("click", () => {
 </script>
 
 </body>
-</html>
+    </html>
