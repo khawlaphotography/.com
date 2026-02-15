@@ -1366,8 +1366,66 @@
             displayTestimonials();
         });
 
-        // ربط بطاقات الباقات
+                // ربط بطاقات الباقات
         document.querySelectorAll('.package-card').forEach(card => {
             card.addEventListener('click', function() {
+                const packageKey = this.dataset.package;
+                if (packageKey && packagesData[packageKey]) {
+                    openPackageModal(packageKey);
+                }
+            });
+        });
+
+        // إغلاق مودال الباقات
+        document.querySelectorAll('.close-modal').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.closest('.modal').style.display = 'none';
+            });
+        });
+
+        // إغلاق المودال عند الضغط خارج المحتوى
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        });
+
+        // زر العودة للأعلى
+        const topBtn = document.getElementById("topBtn");
+        window.onscroll = function() {
+            if (window.scrollY > 300) {
+                topBtn.style.display = "block";
+            } else {
+                topBtn.style.display = "none";
+            }
+        };
+        
+        topBtn.onclick = function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        };
+
+        // معرض الصور (Lightbox)
+        const images = document.querySelectorAll(".gallery-container img");
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+
+        images.forEach(img => {
+            img.addEventListener("click", () => {
+                lightbox.style.display = "flex";
+                lightboxImg.src = img.src;
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        lightbox.addEventListener("click", () => {
+            lightbox.style.display = "none";
+            document.body.style.overflow = 'auto';
+        });
+    </script>
+</body>
+</html>
                 
        
