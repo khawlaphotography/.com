@@ -58,7 +58,7 @@
         "priceRange": "$$",
         "openingHours": "Mo-Su 09:00-22:00",
         "sameAs": [
-            "https://www.instagram.com/p/CXRJZd0I4nD/",
+            "https://www.instagram.com/khawla_photographer",
             "https://www.tiktok.com/@khawla_photographer"
         ]
     }
@@ -758,7 +758,12 @@
         </div>
 
         <!-- باقي المحتوى -->
-                    <div class="glass-box package-card" data-package="offer">
+        <div id="restContent">
+            <!-- ===== القسم الأول: عروض التصوير الفوتوغرافي ===== -->
+            <h2 class="section-subtitle">عروض التصوير الفوتوغرافي</h2>
+            <div class="packages-grid">
+                <!-- 1. عرض التوفير -->
+                <div class="glass-box package-card" data-package="offer">
                     <h3>عرض التوفير</h3>
                     <ul>
                         <li>تصوير لمدة ساعتين</li>
@@ -790,7 +795,7 @@
                         <li>طباعة 10 صور هدية</li>
                         <li>تسليم الصور فلاشة</li>
                     </ul>
-                    <div class="price-tag">195$</div>
+                    <div class="price-tag">190$</div>
                 </div>
 
                 <!-- 4. الباقة الفضية -->
@@ -798,7 +803,7 @@
                     <h3>البكج الفضي</h3>
                     <ul>
                         <li>تصوير 6 ساعات</li>
-                        <li>طباعة 6 صفحات البوم حراري</li>
+                        <li>طباعة 10 صفحات البوم حراري</li>
                         <li>طباعة 10 صور هدية</li>
                         <li>تسليم الصور فلاشة</li>
                     </ul>
@@ -813,7 +818,7 @@
                 <div class="glass-box package-card" data-package="gold">
                     <h3>العرض الذهبي</h3>
                     <ul>
-                        <li>فوتوسيشن احترافي العروسين</li>
+                        <li>فوتوسيشن احترافي للعروسين</li>
                         <li>تفاصيل القاعة والديكوريشن والزفة</li>
                         <li>تجهيزات العروسة من اول اليوم</li>
                         <li>طباعة 10 صور + 10 صفحات البوم حراري</li>
@@ -825,7 +830,7 @@
                 <div class="glass-box package-card" data-package="diamond">
                     <h3>العرض الالماسي</h3>
                     <ul>
-                        <li>فوتوسيشن احترافي العروسين</li>
+                        <li>فوتوسيشن احترافي للعروسين</li>
                         <li>تفاصيل القاعة والديكوريشن والزفة</li>
                         <li>تجهيزات العروسة من اول اليوم</li>
                         <li>10 صفحات البوم + 5 ميني البوم</li>
@@ -909,6 +914,7 @@
                     <div class="price-tag">70$</div>
                 </div>
             </div>
+
             <!-- معرض الصور -->
             <h2 class="section-title">معرض الأعمال</h2>
             <div class="glass-box">
@@ -959,9 +965,9 @@
             <div class="glass-box">
                 <h2 style="font-size:1.8rem;margin-bottom:15px;color:#FFE5A3;">تواصلوا معنا</h2>
                 <div class="social-buttons">
-                    <a href="https://www.instagram.com/p/CXRJZd0I4nD/" class="social-btn instagram"><i class="fab fa-instagram"></i> Instagram</a>
-                    <a href="https://www.tiktok.com/@khawla_photographer" class="social-btn tiktok"><i class="fab fa-tiktok"></i> TikTok</a>
-                    <a href="https://wa.me/201142308981" class="social-btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href="https://www.instagram.com/khawla_photographer" class="social-btn instagram" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="https://www.tiktok.com/@khawla_photographer" class="social-btn tiktok" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+                    <a href="https://wa.me/201142308981" class="social-btn whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                 </div>
             </div>
         </div> <!-- restContent -->
@@ -995,7 +1001,7 @@
         const BIN_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
 
         // بيانات الباقات التفصيلية
-                const packagesData = {
+        const packagesData = {
             offer: {
                 title: 'عرض التوفير',
                 details: '<div class="detail-box"><p>تصوير لمدة ساعتين</p><p>تصوير فوتوسيشن 100$</p><p>فيديو تصوير الزفة ورقص العرسان و الجاتو</p><p>بدون طباعة الصور - تسلم الصور على فلاشة</p></div>',
@@ -1009,7 +1015,7 @@
             package2: {
                 title: 'البكج الثاني',
                 details: '<div class="detail-box"><p>تصوير لمدة 4 ساعات</p><p>فوتوسيشن احترافي شامل الديكوريشن وجميع تفاصيل العروسين والعريس والعروسه والاهل والزفة</p><p>تصوير تقطيع الجاتو</p><p>طباعة 10 صور حجم A5 هدية</p><p>طباعة 7 صفحات البوم حراري</p><p>تسلم جميع الصور على فلاشة</p><p>طباعة صورة هدية للعروسة</p></div>',
-                price: '195$'
+                price: '190$'
             },
             package3: {
                 title: 'البكج الفضي',
@@ -1059,17 +1065,18 @@
         };
 
         // ===== التحكم في توقيت العرض الخاص (تاريخ ثابت) =====
-        // ✅ هذا التاريخ ثابت وما يتغير بتحديث الصفحة
-var showSpecialOffer = true;
+        var showSpecialOffer = false;
+        const offerEndTime = new Date('2026-02-20T23:59:59+02:00'); // تم تعديل التاريخ
 
-// تاريخ انتهاء العرض: 22 فبراير 2026 الساعة 12 منتصف الليل (بتوقيت مصر)
-const offerEndTime = new Date('2026-02-15T23:59:59+02:00');
         function updateOfferTimer() {
             const now = new Date();
             const remaining = offerEndTime - now;
             
             if (remaining <= 0) {
-                document.getElementById('offerTimer').innerHTML = '<span style="color:#FFD966;">انتهى العرض</span>';
+                const timerElement = document.getElementById('offerTimer');
+                if (timerElement) {
+                    timerElement.innerHTML = '<span style="color:#FFD966;">انتهى العرض</span>';
+                }
                 return;
             }
             
@@ -1077,9 +1084,13 @@ const offerEndTime = new Date('2026-02-15T23:59:59+02:00');
             const hours = Math.floor((remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
             
-            document.getElementById('days').textContent = days;
-            document.getElementById('hours').textContent = hours;
-            document.getElementById('minutes').textContent = minutes;
+            const daysElement = document.getElementById('days');
+            const hoursElement = document.getElementById('hours');
+            const minutesElement = document.getElementById('minutes');
+            
+            if (daysElement) daysElement.textContent = days;
+            if (hoursElement) hoursElement.textContent = hours;
+            if (minutesElement) minutesElement.textContent = minutes;
         }
 
         // ===== دوال JSONBin.io =====
@@ -1231,7 +1242,7 @@ const offerEndTime = new Date('2026-02-15T23:59:59+02:00');
                     <p>انواع الالبومات تنضاف بالسعر حسب رغبة العروسة (السيراميك و المخمل)</p>
                     <p>تعديل الصور يشمل كامل العروض</p>
                     <p>تثبيت الحجز بدفع نص العربون</p>
-                    <p>اي وقت إضافي: ١٠٠٠ جنيه للساعة</p>
+                    <p>اي وقت إضافي: 1500 جنيه للساعة</p>
                     <p>المواصلات على أصحاب العرس</p>
                     <p>تسليم الصور خلال شهر ونص</p>
                     <p>الاستعجال: إضافة 60$</p>
@@ -1241,7 +1252,7 @@ const offerEndTime = new Date('2026-02-15T23:59:59+02:00');
             const contactInfo = `
                 <div class="contact-box">
                     <p style="margin: 10px 0;">
-                        <a href="https://www.instagram.com/p/CXRJZd0I4nD/" target="_blank">Instagram</a> |
+                        <a href="https://www.instagram.com/khawla_photographer" target="_blank">Instagram</a> |
                         <a href="https://www.tiktok.com/@khawla_photographer" target="_blank">TikTok</a>
                     </p>
                     <p style="color: #FFD966;">KHAWLA AL GAHRANI</p>
@@ -1280,28 +1291,27 @@ const offerEndTime = new Date('2026-02-15T23:59:59+02:00');
             displayTestimonials();
             
             // إضافة العرض الخاص - بس إذا showSpecialOffer = true
-if (showSpecialOffer) {
-    const specialOfferHTML = `
-        <div class="glass-box" style="background: rgba(255,215,0,0.15); border:2px solid #FFD966; margin-bottom:20px; padding: 15px;">
-            <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap;">
-                <div style="text-align: right;">
-                    <h3 style="color:#FFE5A3; margin:0; font-size:1.3rem;">عرض مؤقت🔥</h3>
-                    <p style="margin:5px 0 0 0; font-size:0.95rem;">احجز أي بكج واحصل على <strong>البوم صور هدية</strong></p>
-                </div>
-                <div id="offerTimer" style="background: rgba(0,0,0,0.3); padding:8px 15px; border-radius:50px; border:1px solid #FFD966; font-size:0.9rem; min-width: 200px; text-align: center;">
-                    <i class="fas fa-clock" style="color:#FFD966; margin-left:5px;"></i>
-                    <span style="color:#FFE5A3;">ينتهي العرض بعد</span><br>
-                    <span id="days">0</span>d <span id="hours">0</span>h <span id="minutes">0</span>m
-                </div>
-            </div>
-        </div>
-    `;
-    
-    document.getElementById('restContent').insertAdjacentHTML('afterbegin', specialOfferHTML);
-}
-                        
-            updateOfferTimer();
-            setInterval(updateOfferTimer, 60000);
+            if (showSpecialOffer) {
+                const specialOfferHTML = `
+                    <div class="glass-box" style="background: rgba(255,215,0,0.15); border:2px solid #FFD966; margin-bottom:20px; padding: 15px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap;">
+                            <div style="text-align: right;">
+                                <h3 style="color:#FFE5A3; margin:0; font-size:1.3rem;">عرض مؤقت 🔥</h3>
+                                <p style="margin:5px 0 0 0; font-size:0.95rem;">احجز أي بكج واحصل على <strong>البوم صور هدية</strong></p>
+                            </div>
+                            <div id="offerTimer" style="background: rgba(0,0,0,0.3); padding:8px 15px; border-radius:50px; border:1px solid #FFD966; font-size:0.9rem; min-width: 200px; text-align: center;">
+                                <i class="fas fa-clock" style="color:#FFD966; margin-left:5px;"></i>
+                                <span style="color:#FFE5A3;">ينتهي العرض بعد</span><br>
+                                <span id="days">0</span>d <span id="hours">0</span>h <span id="minutes">0</span>m
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                document.getElementById('restContent').insertAdjacentHTML('afterbegin', specialOfferHTML);
+                updateOfferTimer();
+                setInterval(updateOfferTimer, 60000);
+            }
         };
 
         document.getElementById('addTestimonialForm')?.addEventListener('submit', function(e) {
